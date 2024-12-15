@@ -2,9 +2,17 @@ services:
   - type: web
     name: pdf-generator
     env: node
-    buildCommand: npm install
-    startCommand: node app.js
+    buildCommand: |
+      apt-get update && apt-get install -y chromium
+      npm install
+    startCommand: npm run prod
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
+        value: true
+      - key: PUPPETEER_EXECUTABLE_PATH
+        value: /usr/bin/chromium
+      - key: PORT
+        value: 3000
     plan: free 

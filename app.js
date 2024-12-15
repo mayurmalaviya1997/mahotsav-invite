@@ -22,6 +22,17 @@ app.get("/", (req, res) => {
   res.render("form"); // Render the form.ejs file
 });
 
+// New route for direct PDF download
+app.get("/download-static-pdf", (req, res) => {
+  const staticPdfPath = path.join(__dirname, "static", "fallback.pdf");
+  res.download(staticPdfPath, "invitation.pdf", (err) => {
+    if (err) {
+      console.error("Error downloading static PDF:", err);
+      res.status(500).send("Error downloading PDF");
+    }
+  });
+});
+
 app.post("/generate-pdf", async (req, res) => {
   const { fullName } = req.body;
 
@@ -33,7 +44,8 @@ app.post("/generate-pdf", async (req, res) => {
     if(fullName) htmlContent = htmlContent.replace("{{name}}", fullName || "");
 
     const browser = await puppeteer.launch({
-      headless: 'new',
+      // headless: 'new',
+      headless: true,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -59,6 +71,16 @@ app.post("/generate-pdf", async (req, res) => {
     res.end(pdfBuffer);
   } catch (error) {
     console.error("Error generating PDF:", error);
+    res.download(
+      path.join(__dirname, "static", "fallback.pdf"),
+      "invitation.pdf",
+      (err) => {
+        if (err) {
+          console.error("Error serving fallback PDF:", err);
+          res.status(500).send("An error occurred while generating the PDF.");
+        }
+      }
+    );
     res.status(500).send("An error occurred while generating the PDF.");
   }
 });

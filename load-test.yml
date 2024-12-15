@@ -1,0 +1,27 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 2
+      name: "Warm up"
+    - duration: 120
+      arrivalRate: 3
+      rampTo: 5
+      name: "Ramp up load"
+    - duration: 180
+      arrivalRate: 5
+      name: "Sustained load"
+  defaults:
+    headers:
+      Content-Type: "application/x-www-form-urlencoded"
+
+scenarios:
+  - name: "Generate PDFs"
+    flow:
+      - post:
+          url: "/generate-pdf"
+          body: "fullName=Test+User+{{$randomNumber(1,1000)}}"
+  - name: "Download Static PDF"
+    flow:
+      - get:
+          url: "/download-static-pdf" 

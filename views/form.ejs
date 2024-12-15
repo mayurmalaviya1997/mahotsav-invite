@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://i.postimg.cc/5t3kn1HW/Pngtree-decorative-invitation-card-design-15786977.jpg") no-repeat center center
+            fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #fff;
+      }
+
+      .form-container {
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 400px;
+        margin: 0 10px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        font-size: 1em;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"] {
+        width: 93%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1em;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 0.9em;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      button {
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        background: #4caf50;
+        color: white;
+        transition: background 0.3s;
+      }
+
+      button:last-child {
+        background: #2196f3;
+      }
+
+      button:hover {
+        background: #45a049;
+      }
+
+      button:last-child:hover {
+        background: #1e88e5;
+      }
+
+      .loader {
+        display: none;
+        border: 5px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 5px solid #4caf50;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (min-width: 600px) {
+        .buttons {
+          flex-direction: row;
+          gap: 10px;
+        }
+
+        button {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Invitation</h1>
+      <form id="userForm" method="POST" action="/generate-pdf">
+        <div class="form-group">
+          <label for="fullName">Enter Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Your Full Name"
+          />
+          <div class="error-message" id="error">
+            Please enter your full name before submitting.
+          </div>
+        </div>
+        <div class="buttons">
+          <button type="button" id="submitBtn">Submit and Download PDF</button>
+          <button type="button" id="downloadBtn">Direct Download PDF</button>
+        </div>
+      </form>
+      <div class="loader" id="loader"></div>
+    </div>
+
+    <script>
+      const submitBtn = document.getElementById("submitBtn");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const fullNameInput = document.getElementById("fullName");
+      const errorMessage = document.getElementById("error");
+      const loader = document.getElementById("loader");
+
+      const showLoader = () => {
+        loader.style.display = "block";
+      };
+
+      const hideLoader = () => {
+        loader.style.display = "none";
+      };
+
+      async function checkStatus(jobId) {
+        try {
+          const response = await fetch(`/pdf-status/${jobId}`);
+          const data = await response.json();
+          
+          if (data.state === 'completed') {
+            // Download the PDF
+            const pdfResponse = await fetch(`/download-pdf/${jobId}`);
+            if (!pdfResponse.ok) {
+              throw new Error('PDF download failed');
+            }
+            
+            const blob = await pdfResponse.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'generated.pdf';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            hideLoader();
+            alert('PDF downloaded successfully!');
+          } else if (data.state === 'failed') {
+            hideLoader();
+            alert('PDF generation failed');
+          } else {
+            // Check again in 2 seconds
+            setTimeout(() => checkStatus(jobId), 2000);
+          }
+        } catch (error) {
+          console.error('Error checking status:', error);
+          hideLoader();
+          alert('Error checking PDF status');
+        }
+      }
+
+      submitBtn.addEventListener("click", async () => {
+        if (fullNameInput.value.trim() === "") {
+          errorMessage.style.display = "block";
+        } else {
+          errorMessage.style.display = "none";
+          showLoader();
+
+          try {
+            const form = document.getElementById("userForm");
+            const formData = new FormData(form);
+
+            const response = await fetch("/generate-pdf", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+              body: new URLSearchParams(formData),
+            });
+
+            if (response.ok) {
+              const blob = await response.blob();
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = "generated.pdf";
+              document.body.appendChild(a);
+              a.click();
+              window.URL.revokeObjectURL(url);
+              document.body.removeChild(a);
+              alert("PDF downloaded successfully!");
+            } else {
+              throw new Error("PDF generation failed");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred while generating the PDF");
+          } finally {
+            hideLoader();
+          }
+        }
+      });
+
+      downloadBtn.addEventListener("click", async () => {
+        showLoader();
+        try {
+          const response = await fetch("/download-static-pdf");
+          
+          if (response.ok) {
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "invitation.pdf";
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            alert("PDF downloaded successfully!");
+            hideLoader();
+          } else {
+            throw new Error("PDF download failed");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred while downloading the PDF");
+          hideLoader();
+        } finally {
+          hideLoader();
+        }
+      });
+
+      fullNameInput.addEventListener("input", () => {
+        if (fullNameInput.value.trim() !== "") {
+          errorMessage.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -44,11 +44,11 @@ app.post("/generate-pdf", async (req, res) => {
     if(fullName) htmlContent = htmlContent.replace("{{name}}", fullName || "");
 
     const browser = await puppeteer.launch({
-      // headless: 'new',
       headless: true,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
+        '--disable-accelerated-2d-canvas',
         '--disable-dev-shm-usage',
         '--disable-gpu'
       ],

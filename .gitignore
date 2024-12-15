@@ -39,8 +39,6 @@ Thumbs.db
 tmp/
 temp/
 
-# Generated PDFs (if you're storing them temporarily)
-*.pdf
 
 # Redis dump file
 dump.rdb

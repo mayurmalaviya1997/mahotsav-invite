@@ -52,7 +52,7 @@ app.post("/generate-pdf", async (req, res) => {
         '--disable-dev-shm-usage',
         '--disable-gpu'
       ],
-      executablePath: process.env.CHROME_PATH || undefined, // Use system Chrome path if defined
+      // executablePath: process.env.CHROME_PATH || undefined, // Use system Chrome path if defined
     });
     const page = await browser.newPage();
     await page.setContent(htmlContent, { waitUntil: "networkidle0" });

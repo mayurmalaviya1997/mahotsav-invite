@@ -3,17 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anek+Gujarati">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@100..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
   <title>PDF Content</title>
   <style>
+    html, *{
+      margin: 0;
+      padding: 0; 
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Noto Sans', Arial, sans-serif;
+      font-family: 'Anek Gujarati',Arial, sans-serif;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-size: 62.5%;
     }
     .wrapper {
+      position: relative;
       margin: 0;
       padding: 0;
     }
@@ -22,50 +32,53 @@
     }
     img {
       max-width: 100%;
-    }
-    .main {
-      width: 100%;
-    }
-    .page-one {
-      position: relative;
       display: block;
-      margin-bottom: 20px;
+      page-break-after: always;
+      margin: 0;
+      padding: 0;
+      
     }
     .user-name {
       position: absolute;
-      top: 75%;
-      left: 4%;
+      /* top: 75%;
+      left: 5%; */
+      top: 613px;
+      left: 53px;
+      z-index: 11;
       font-size: 16px;
       color: #e63946;
+    }
+    /* Fix for the last image to not create an extra blank page */
+    img:last-child {
+      page-break-after: avoid;
     }
   </style>
 </head>
 <body>
-  <div class="main">
-    <div class="wrapper">
-      <div class="page-one">
-        <img src="https://i.postimg.cc/QttxyK0B/00.jpg" alt="Image 1">
-        <h1 class="user-name">{{name}}</h1>
-      </div>
-      <img src="https://i.postimg.cc/Y9ZdnxHQ/01.jpg" alt="Image1">
-      <img src="https://i.postimg.cc/YC0m0Bgq/02.jpg" alt="Image1">
-      <img src="https://i.postimg.cc/kXX2YPTF/03.jpg" alt="Image">
-      <img src="https://i.postimg.cc/Dw4yRvLs/04.jpg" alt="Image">
-      <img src="https://i.postimg.cc/L5smD2mJ/05.jpg" alt="Image">
-      <img src="https://i.postimg.cc/3w759YB3/06.jpg" alt="Image">
-      <img src="https://i.postimg.cc/TwBXVmN4/07.jpg" alt="Image">
-      <img src="https://i.postimg.cc/pXnwHpc2/08.jpg" alt="Image">
-      <img src="https://i.postimg.cc/WbLvtGkD/09.jpg" alt="Image">
-      <img src="https://i.postimg.cc/MG4LNw0c/10.jpg" alt="Image">
-      <img src="https://i.postimg.cc/T33HP1CL/11.jpg" alt="Image">
-      <img src="https://i.postimg.cc/xjGsyMZN/12.jpg" alt="Image">
-      <img src="https://i.postimg.cc/nLQ2sD7z/13.jpg" alt="Image">
-      <img src="https://i.postimg.cc/j2R4k31w/14.jpg" alt="Image">
-      <img src="https://i.postimg.cc/Wz9gYNrC/15.jpg" alt="Image">
-      <img src="https://i.postimg.cc/1tv8sWtN/16.jpg" alt="Image">
-      <img src="https://i.postimg.cc/RhR1K1X7/17.jpg" alt="Image">
-      <img src="https://i.postimg.cc/HL9LpSx9/18.jpg" alt="Image">
-    </div>
+  <div class="wrapper">
+    <img src="https://i.postimg.cc/QttxyK0B/00.jpg" alt="Image 1">
+    <img src="https://i.postimg.cc/Y9ZdnxHQ/01.jpg" alt="Image 1">
+    <img src="https://i.postimg.cc/YC0m0Bgq/02.jpg" alt="Image 2">
+    <img src="https://i.postimg.cc/kXX2YPTF/03.jpg" alt="Image 3">
+    <img src="https://i.postimg.cc/Dw4yRvLs/04.jpg" alt="Image 4">
+    <img src="https://i.postimg.cc/L5smD2mJ/05.jpg" alt="Image 5">
+    <img src="https://i.postimg.cc/3w759YB3/06.jpg" alt="Image 6">
+    <img src="https://i.postimg.cc/TwBXVmN4/07.jpg" alt="Image 7">
+    <img src="https://i.postimg.cc/pXnwHpc2/08.jpg" alt="Image 8">
+    <img src="https://i.postimg.cc/WbLvtGkD/09.jpg" alt="Image 9">
+    <img src="https://i.postimg.cc/MG4LNw0c/10.jpg" alt="Image 10">
+    <img src="https://i.postimg.cc/T33HP1CL/11.jpg" alt="Image 11">
+    <img src="https://i.postimg.cc/xjGsyMZN/12.jpg" alt="Image 12">
+    <img src="https://i.postimg.cc/nLQ2sD7z/13.jpg" alt="Image 13">
+    <img src="https://i.postimg.cc/j2R4k31w/14.jpg" alt="Image 14">
+    <img src="https://i.postimg.cc/Wz9gYNrC/15.jpg" alt="Image 15">
+    <img src="https://i.postimg.cc/1tv8sWtN/16.jpg" alt="Image 16">
+    <img src="https://i.postimg.cc/RhR1K1X7/17.jpg" alt="Image 17">
+    <img src="https://i.postimg.cc/x1LqjNCV/73.jpg" alt="Image 18">
+    <img src="https://i.postimg.cc/yxSsf23C/74.jpg" alt="Image 19">
+    <img src="https://i.postimg.cc/rpWHPcQJ/76.jpg" alt="Image 20">
+
+    <h1 style="font-family: 'Anek Gujarati', sans-serif;" class="user-name"> શ્રીમાન, {{name}} </h1>
   </div>
 </body>
 </html>

@@ -35,6 +35,7 @@ app.use((req, res, next) => {
 // Middleware for parsing form data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files like CSS
+app.use(express.json());
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
@@ -90,7 +91,7 @@ const startCluster = async () => {
 
         if (fullName) htmlContent = htmlContent.replace("{{name}}", fullName || "");
 
-        await page.setContent(htmlContent, { waitUntil: "load" });
+        await page.setContent(htmlContent, { waitUntil: "load", timeout: 180000 });
 
         const pdfBuffer = await page.pdf({
           format: "A4",

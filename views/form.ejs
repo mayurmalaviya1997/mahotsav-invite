@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interactive Form</title>
+    <title>Mahuva Mahotsav Invitation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@100..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -146,10 +146,10 @@
   </head>
   <body>
     <div class="form-container">
-      <h1 class="main-title">મૂર્તિ પ્રતિષ્ઠા મહોત્સવ આમંત્રણ પત્રિકા</h1>
+      <h1 class="main-title">મહુવા મૂર્તિ પ્રતિષ્ઠા મહોત્સવ આમંત્રણ પત્રિકા</h1>
       <form id="userForm" method="POST" action="/generate-pdf">
         <div class="form-group">
-          <label for="fullName">કૃપા કરી નીચે તમારું અટક સાથે નામ લખો.</label>
+          <label for="fullName">નીચે નામ લખો.</label>
           <input
             type="text"
             id="fullName"
@@ -191,7 +191,6 @@
         note.style.display = "none";
         submitBtn.classList.remove("disabled");
         downloadBtn.classList.remove("disabled");
-       
       };
 
 
@@ -225,7 +224,8 @@
               window.URL.revokeObjectURL(url);
               document.body.removeChild(a);
               hideLoader();
-              alert("આમંત્રણ પત્રિકા ડાઊનલોડ થઇ ગઈ છે.");
+              alert(`${fullNameInput.value || "" } ની આમંત્રણ પત્રિકા ડાઊનલોડ થઇ ગઈ છે.`);
+              fullNameInput.value = "";
             } else {
               alert(`આમંત્રણ પત્રિકા ડાઊનલોડ મા કોઈ તકનીકી ખામી આવી છે, કૃપા કરી "તમારા નામ વગર પત્રિકા ડાઊનલોડ કરો", અથવા થોડા સમય પછી પ્રયત્ન કરો .`);
             }

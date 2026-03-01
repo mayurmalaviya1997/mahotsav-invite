@@ -91,17 +91,29 @@ const startCluster = async () => {
 
         if (fullName) htmlContent = htmlContent.replace("{{name}}", fullName || "");
 
-        await page.setContent(htmlContent, { waitUntil: "load", timeout: 180000 });
+        await page.setContent(htmlContent, { waitUntil: "networkidle0", timeout: 180000 });
+
+        // Get the exact dimensions of the first image to set the PDF page size
+        const dimensions = await page.evaluate(() => {
+          const img = document.querySelector('img');
+          if (img && img.naturalWidth && img.naturalHeight) {
+            return {
+              width: img.naturalWidth + 'px',
+              height: img.naturalHeight + 'px'
+            };
+          }
+          return { width: "2048px", height: "1550px" }; // fallback
+        });
 
         const pdfBuffer = await page.pdf({
-          format: "A4",
+          width: dimensions.width,
+          height: dimensions.height,
           printBackground: true,
-          landscape: true,
           margin: {
-            top: '0px',
-            left: '0px',
-            right: '0px',
-            bottom: '0px'
+            top: "0px",
+            right: "0px",
+            bottom: "0px",
+            left: "0px"
           }
         });
 

@@ -1,279 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mahuva Mahotsav Invitation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@100..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: "Anek Gujarati", sans-serif;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url("https://i.postimg.cc/Y9ZdnxHQ/01.jpg") no-repeat center center
-            fixed;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        color: #fff;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahuva Mahotsav Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@100..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: "Anek Gujarati", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url("https://i.postimg.cc/QN5DMDQW/Chat-GPT-Image-Mar-2-2026-01-03-52-AM.png") no-repeat center top fixed;
+      background-size: contain;
+      /* Prevents image from being cropped out */
+      background-color: #0b1e42;
+      /* Fills empty space if ratio doesn't match window */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    input,
+    textarea,
+    button {
+      font-family: "Anek Gujarati", sans-serif;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      color: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+      width: 100%;
+      max-width: 550px;
+      margin: 0 15px;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      font-size: 1em;
+      color: #fff;
+      outline: none;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    input[type="text"]:focus {
+      border-color: #ffd700;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 16px 20px;
+      border: 1px solid rgba(255, 215, 0, 0.8);
+      border-radius: 50px;
+      font-size: 1.15em;
+      font-weight: 600;
+      cursor: pointer;
+      color: #0b1e42;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #FFDF5D, #FFC000);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+    }
+
+    button:last-child {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: none;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+      background: linear-gradient(135deg, #FFF09D, #FFD700);
+    }
+
+    button:last-child:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: #ffd700;
+      color: #ffd700;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+    }
+
+    .loader {
+      display: none;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top: 5px solid #FFD700;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    .note {
+      margin-top: 15px;
+      display: none;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.95em;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
 
-      input, textarea,button{
-        font-family: "Anek Gujarati", sans-serif;
+      100% {
+        transform: rotate(360deg);
       }
+    }
 
-      .form-container {
-        background: rgba(255, 255, 255, 0.9);
-        color: #333;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        width: 100%;
-        max-width: 400px;
-        margin: 0 10px;
-      }
-
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 1.8em;
-      }
-
-      .form-group {
-        margin-bottom: 15px;
-      }
-
-      label {
-        display: block;
-        font-size: 1em;
-        margin-bottom: 5px;
-      }
-
-      input[type="text"] {
-        width: 93%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 1em;
-      }
-
-      .error-message {
-        color: red;
-        font-size: 0.9em;
-        margin-top: 5px;
-        display: none;
-      }
-
+    @media (min-width: 600px) {
       .buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        gap: 15px;
       }
 
       button {
-        padding: 12px;
-        border: none;
-        border-radius: 4px;
-        font-size: 1em;
-        cursor: pointer;
-        background: #4caf50;
-        color: white;
-        transition: background 0.3s;
+        flex: 1;
       }
+    }
 
-      button:last-child {
-        background: #2196f3;
-      }
+    .main-title {
+      color: #FFD700;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      font-size: 2.2em;
+      margin-bottom: 30px;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+  </style>
+</head>
 
-      button:hover {
-        background: #45a049;
-      }
-
-      button:last-child:hover {
-        background: #1e88e5;
-      }
-
-      .loader {
-        display: none;
-        border: 5px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 5px solid #4caf50;
-        width: 40px;
-        height: 40px;
-        animation: spin 1s linear infinite;
-        margin: 20px auto;
-      }
-
-      .note{
-        margin-top: 15px;
-        display: none;
-      }
-
-      .disabled{
-        pointer-events: none;
-        opacity: 0.5;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      @media (min-width: 600px) {
-        .buttons {
-          flex-direction: row;
-          gap: 10px;
-        }
-
-        button {
-          flex: 1;
-        }
-      }
-
-      .main-title, label{
-        color: rgb(219, 67, 67);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="form-container">
-      <h1 class="main-title">મહુવા મૂર્તિ પ્રતિષ્ઠા મહોત્સવ આમંત્રણ પત્રિકા</h1>
-      <form id="userForm" method="POST" action="/generate-pdf">
-        <div class="form-group">
-          <label for="fullName">નીચે નામ લખો.</label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            placeholder="તમારું નામ અહીંયા લખો"
-          />
-          <div class="error-message" id="error">
-            સબમિટ કરતા પહેલા કૃપા કરીને તમારું પૂરું નામ દાખલ કરો.
-          </div>
+<body>
+  <div class="form-container">
+    <h1 class="main-title">દેવભૂમિ દ્વારકા ના આંગણે શ્રી દ્વારકા મહોત્સ્વ </h1>
+    <form id="userForm" method="POST" action="/generate-pdf">
+      <div class="form-group">
+        <label for="fullName">નીચે નામ લખો.</label>
+        <input type="text" id="fullName" name="fullName" placeholder="તમારું નામ અહીંયા લખો" />
+        <div class="error-message" id="error">
+          સબમિટ કરતા પહેલા કૃપા કરીને તમારું પૂરું નામ દાખલ કરો.
         </div>
-        <div class="buttons">
-          <button type="button" id="submitBtn">તમારા નામ સાથે પત્રિકા ડાઊનલોડ કરો</button>
-          <button type="button" id="downloadBtn">તમારા નામ વગર પત્રિકા ડાઊનલોડ કરો </button>
-        </div>
-      </form>
-      <div class="loader" id="loader"></div>
-      <div class="note" id="note">
-        આમંત્રણ પત્રિકા ડાઊનલોડ થઇ રહી છે. પત્રિકા ડાઊનલોડ થવામાં થોડો સમય લાગશે કૃપા કરી રાહ જુઓ, ડાઊનલોડ પૂર્ણ ના થાય ત્યાંસુધી પેઝ રિફ્રેશ કરશો નહિ અથવા બંધ કરશો નહિ.
       </div>
+      <div class="buttons">
+        <button type="button" id="submitBtn">તમારા નામ સાથે પત્રિકા ડાઊનલોડ કરો</button>
+        <button type="button" id="downloadBtn">તમારા નામ વગર પત્રિકા ડાઊનલોડ કરો </button>
+      </div>
+    </form>
+    <div class="loader" id="loader"></div>
+    <div class="note" id="note">
+      આમંત્રણ પત્રિકા ડાઊનલોડ થઇ રહી છે. પત્રિકા ડાઊનલોડ થવામાં થોડો સમય લાગશે કૃપા કરી રાહ જુઓ, ડાઊનલોડ પૂર્ણ ના થાય
+      ત્યાંસુધી પેઝ રિફ્રેશ કરશો નહિ અથવા બંધ કરશો નહિ.
     </div>
+  </div>
 
-    <script>
-      const submitBtn = document.getElementById("submitBtn");
-      const downloadBtn = document.getElementById("downloadBtn");
-      const fullNameInput = document.getElementById("fullName");
-      const errorMessage = document.getElementById("error");
-      const loader = document.getElementById("loader");
-      const note = document.getElementById("note");
+  <script>
+    const submitBtn = document.getElementById("submitBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const fullNameInput = document.getElementById("fullName");
+    const errorMessage = document.getElementById("error");
+    const loader = document.getElementById("loader");
+    const note = document.getElementById("note");
 
-      const showLoader = () => {
-        loader.style.display = "block";
-        note.style.display = "block";
-        submitBtn.classList.add("disabled");
-        downloadBtn.classList.add("disabled");
-      };
+    const showLoader = () => {
+      loader.style.display = "block";
+      note.style.display = "block";
+      submitBtn.classList.add("disabled");
+      downloadBtn.classList.add("disabled");
+    };
 
-      const hideLoader = () => {
-        loader.style.display = "none";
-        note.style.display = "none";
-        submitBtn.classList.remove("disabled");
-        downloadBtn.classList.remove("disabled");
-      };
+    const hideLoader = () => {
+      loader.style.display = "none";
+      note.style.display = "none";
+      submitBtn.classList.remove("disabled");
+      downloadBtn.classList.remove("disabled");
+    };
 
 
-      submitBtn.addEventListener("click", async () => {
-        if (fullNameInput.value.trim() === "") {
-          errorMessage.style.display = "block";
-        } else {
-          errorMessage.style.display = "none";
-          showLoader();
-
-          try {
-            const form = document.getElementById("userForm");
-            const formData = new FormData(form);
-
-            const response = await fetch("/generate-pdf", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-              },
-              body: new URLSearchParams(formData),
-            });
-
-            if (response.ok) {
-              const blob = await response.blob();
-              const url = window.URL.createObjectURL(blob);
-              const a = document.createElement("a");
-              a.href = url;
-              a.download = "generated.pdf";
-              document.body.appendChild(a);
-              a.click();
-              window.URL.revokeObjectURL(url);
-              document.body.removeChild(a);
-              hideLoader();
-              alert(`${fullNameInput.value || "" } ની આમંત્રણ પત્રિકા ડાઊનલોડ થઇ ગઈ છે.`);
-              fullNameInput.value = "";
-            } else {
-              alert(`આમંત્રણ પત્રિકા ડાઊનલોડ મા કોઈ તકનીકી ખામી આવી છે, કૃપા કરી "તમારા નામ વગર પત્રિકા ડાઊનલોડ કરો", અથવા થોડા સમય પછી પ્રયત્ન કરો .`);
-            }
-          } catch (error) {
-            hideLoader();
-            console.error("Error:", error);
-            alert(`આમંત્રણ પત્રિકા ડાઊનલોડ મા કોઈ તકનીકી ખામી આવી છે, કૃપા કરી "તમારા નામ વગર પત્રિકા ડાઊનલોડ કરો", અથવા થોડા સમય પછી પ્રયત્ન કરો .`);
-          } finally {
-            hideLoader();
-          }
-        }
-      });
-
-      downloadBtn.addEventListener("click", async () => {
+    submitBtn.addEventListener("click", async () => {
+      if (fullNameInput.value.trim() === "") {
+        errorMessage.style.display = "block";
+      } else {
+        errorMessage.style.display = "none";
         showLoader();
+
         try {
-          const response = await fetch("/download-static-pdf");
-          
+          const form = document.getElementById("userForm");
+          const formData = new FormData(form);
+
+          const response = await fetch("/generate-pdf", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams(formData),
+          });
+
           if (response.ok) {
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = "invitation.pdf";
+            a.download = "generated.pdf";
             document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
             hideLoader();
-            alert("આમંત્રણ પત્રિકા ડાઊનલોડ થઇ ગઈ છે.");
+            alert(`${fullNameInput.value || ""} ની આમંત્રણ પત્રિકા ડાઊનલોડ થઇ ગઈ છે.`);
+            fullNameInput.value = "";
           } else {
-            throw new Error("આમંત્રણ પત્રિકા ડાઊનલોડ મા કોઈ તકનીકી ખામી આવી છે,થોડા સમય પછી પ્રયત્ન કરો.");
-            hideLoader();
+            alert(`આમંત્રણ પત્રિકા ડાઊનલોડ મા કોઈ તકનીકી ખામી આવી છે, કૃપા કરી "તમારા નામ વગર પત્રિકા ડાઊનલોડ કરો", અથવા થોડા સમય પછી પ્રયત્ન કરો .`);
           }
         } catch (error) {
-          console.error("Error:", error);
           hideLoader();
-          alert("આમંત્રણ પત્રિકા ડાઊનલોડ મા કોઈ તકનીકી ખામી આવી છે,થોડા સમય પછી પ્રયત્ન કરો.");
+          console.error("Error:", error);
+          alert(`આમંત્રણ પત્રિકા ડાઊનલોડ મા કોઈ તકનીકી ખામી આવી છે, કૃપા કરી "તમારા નામ વગર પત્રિકા ડાઊનલોડ કરો", અથવા થોડા સમય પછી પ્રયત્ન કરો .`);
         } finally {
           hideLoader();
         }
-      });
+      }
+    });
 
-      fullNameInput.addEventListener("input", () => {
-        if (fullNameInput.value.trim() !== "") {
-          errorMessage.style.display = "none";
+    downloadBtn.addEventListener("click", async () => {
+      showLoader();
+      try {
+        const response = await fetch("/download-static-pdf");
+
+        if (response.ok) {
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "invitation.pdf";
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+          hideLoader();
+          alert("આમંત્રણ પત્રિકા ડાઊનલોડ થઇ ગઈ છે.");
+        } else {
+          throw new Error("આમંત્રણ પત્રિકા ડાઊનલોડ મા કોઈ તકનીકી ખામી આવી છે,થોડા સમય પછી પ્રયત્ન કરો.");
+          hideLoader();
         }
-      });
-    </script>
-  </body>
+      } catch (error) {
+        console.error("Error:", error);
+        hideLoader();
+        alert("આમંત્રણ પત્રિકા ડાઊનલોડ મા કોઈ તકનીકી ખામી આવી છે,થોડા સમય પછી પ્રયત્ન કરો.");
+      } finally {
+        hideLoader();
+      }
+    });
+
+    fullNameInput.addEventListener("input", () => {
+      if (fullNameInput.value.trim() !== "") {
+        errorMessage.style.display = "none";
+      }
+    });
+  </script>
+</body>
+
 </html>

@@ -1,62 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anek+Gujarati">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@100..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@100..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
   <title>PDF Content</title>
   <style>
-    html, *{
+    @page {
       margin: 0;
-      padding: 0; 
-      box-sizing: border-box;
     }
+
+    html,
     body {
-      font-family: 'Anek Gujarati',Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-size: 62.5%;
+      width: 100%;
+      height: 100%;
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Anek Gujarati', Arial, sans-serif;
+      font-size: 62.5%;
+      background-color: white;
+      /* Ensure background is solid */
+    }
+
     .wrapper {
       position: relative;
       margin: 0;
       padding: 0;
+      width: 100%;
+      display: block;
+      /* Removing inline extra space */
     }
+
     h1 {
       color: #333;
     }
+
     img {
-      max-width: 100%;
+      width: 100%;
+      /* Force image to take full width */
       display: block;
+      /* Remove space under images */
       page-break-after: always;
       margin: 0;
       padding: 0;
-      
+      border: none;
     }
+
     .user-name {
       position: absolute;
-      /* top: 75%;
-      left: 5%; */
-      top: 613px;
-      left: 53px;
+      top: 57%;
+      /* Estimated vertical center of the પ.ભ.શ્રી line */
+      left: 63%;
+      /* Start of the blank line */
       z-index: 11;
-      font-size: 16px;
+      font-size: 45px;
+      /* Scaled up for 1550px tall images */
       color: #e63946;
+      margin: 0;
+      white-space: nowrap;
+      transform: translateY(-50%);
+      /* font-weight: 600; */
+      font-size: 16px;
     }
+
     /* Fix for the last image to not create an extra blank page */
-    img:last-child {
+    img:last-of-type {
       page-break-after: avoid;
     }
   </style>
 </head>
+
 <body>
   <div class="wrapper">
-    <img src="https://i.postimg.cc/QttxyK0B/00.jpg" alt="Image 1">
+    <!-- <img src="https://i.postimg.cc/QttxyK0B/00.jpg" alt="Image 1">
     <img src="https://i.postimg.cc/Y9ZdnxHQ/01.jpg" alt="Image 1">
     <img src="https://i.postimg.cc/YC0m0Bgq/02.jpg" alt="Image 2">
     <img src="https://i.postimg.cc/kXX2YPTF/03.jpg" alt="Image 3">
@@ -76,9 +106,33 @@
     <img src="https://i.postimg.cc/RhR1K1X7/17.jpg" alt="Image 17">
     <img src="https://i.postimg.cc/x1LqjNCV/73.jpg" alt="Image 18">
     <img src="https://i.postimg.cc/yxSsf23C/74.jpg" alt="Image 19">
-    <img src="https://i.postimg.cc/rpWHPcQJ/76.jpg" alt="Image 20">
+    <img src="https://i.postimg.cc/rpWHPcQJ/76.jpg" alt="Image 20"> -->
 
-    <h1 style="font-family: 'Anek Gujarati', sans-serif;" class="user-name"> શ્રીમાન, {{name}} </h1>
+    <div
+      style="position: relative; width: 100%; margin: 0; padding: 0; display: block; break-after: always; page-break-after: always;">
+      <img src="https://i.postimg.cc/bwRn1QpS/img-1.jpg" alt="img-1"
+        style="page-break-after: avoid; break-after: avoid;">
+      <h1 style="font-family: 'Anek Gujarati', sans-serif;" class="user-name"> {{name}} </h1>
+    </div>
+    <img src="https://i.postimg.cc/MpYB1yqd/img-2.jpg" alt="img-2">
+    <img src="https://i.postimg.cc/43N9Pmx1/img-3.jpg" alt="img-3">
+    <img src="https://i.postimg.cc/xdTz5c16/img-4.jpg" alt="img-4">
+    <img src="https://i.postimg.cc/9fF7brQ8/img-5.jpg" alt="img-5">
+    <img src="https://i.postimg.cc/Xv7CLpvM/img-6.jpg" alt="img-6">
+    <img src="https://i.postimg.cc/BvY1V48K/img-7.jpg" alt="img-7">
+    <img src="https://i.postimg.cc/QM4WyhBk/img-8.jpg" alt="img-8">
+    <img src="https://i.postimg.cc/Y9vmcZgg/img-9.jpg" alt="img-9">
+    <img src="https://i.postimg.cc/ydDSqt90/img-10.jpg" alt="img-10">
+    <img src="https://i.postimg.cc/sXMZFqSc/img-11.jpg" alt="img-11">
+    <img src="https://i.postimg.cc/765Tvd7p/img-12.jpg" alt="img-12">
+    <img src="https://i.postimg.cc/SsHYmd7P/img-13.jpg" alt="img-13">
+    <img src="https://i.postimg.cc/xCBN953Y/img-14.jpg" alt="img-14">
+    <img src="https://i.postimg.cc/hjNQKs1P/img-15.jpg" alt="img-15">
+    <img src="https://i.postimg.cc/6qR2qZMW/img-16.jpg" alt="img-16">
+    <img src="https://i.postimg.cc/rsW0s4f4/img-17.jpg" alt="img-17">
+    <img src="https://i.postimg.cc/yx9gxRLX/img-18.jpg" alt="img-18">
+    <img src="https://i.postimg.cc/zvWbvhxk/img-19.jpg" alt="img-19">
   </div>
 </body>
+
 </html>
